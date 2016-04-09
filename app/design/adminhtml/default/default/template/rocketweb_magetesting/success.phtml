@@ -1,0 +1,54 @@
+<?php 
+
+/**
+ * Rocket Web Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is available through the world-wide-web at this URL:
+ * http://www.rocketweb.com/RW-LICENSE.txt
+ *
+ * @category   RocketWeb
+ * @package    RocketWeb_MageTesting
+ * @copyright  Copyright (c) 2013 RocketWeb (http://www.rocketweb.com)
+ * @author     Rocket Web Inc.
+ * @license    http://www.rocketweb.com/RW-LICENSE.txt
+ */
+
+?>
+<div class="magetesting_success" title="<?php echo Mage::helper('magetesting')->__('Success'); ?>!">
+    <div>
+        <span class="title"><?php echo Mage::helper('magetesting')->__('Success'); ?>!</span>
+
+        <?php $status = $this->checkStatus(); ?>
+
+        <?php if ($status === 'ready'): ?>
+ 
+        <p>Your store has been successfully imported.</p>
+
+        <p><?php echo Mage::helper('magetesting')->__('Your store frontend URL is'); ?>:</p>
+        <p><a href="<?php echo $this->getWizard()->getStoreFrontendUrl(); ?>"><?php echo $this->getWizard()->getStoreFrontendUrl(); ?></a></p>
+
+        <p><?php echo Mage::helper('magetesting')->__('Your store backend URL is'); ?>:</p>
+        <p><a href="<?php echo $this->getWizard()->getStoreBackendUrl(); ?>"><?php echo $this->getWizard()->getStoreBackendUrl(); ?></a></p>
+
+        <?php else: ?>
+
+        <p>Your store import has been scheduled. You will receive e-mail when it's ready.</p>
+
+        <p>Import status: <?php echo $status; ?></p>
+
+        <p><span><?php echo $this->getChildHtml('check_status_button'); ?></span></p>
+
+        <p>or</p>
+
+        <?php endif; ?>
+
+        <form action="<?php echo $this->getUrl('*/*/*') ?>" method="post" id="magetesting-reset">
+            <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>" />
+            <span><?php echo $this->getChildHtml('reset_wizard_state_button'); ?></span>
+        </form>
+
+    </div>
+</div>

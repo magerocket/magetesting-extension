@@ -1,0 +1,51 @@
+<?php 
+
+/**
+ * Rocket Web Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is available through the world-wide-web at this URL:
+ * http://www.rocketweb.com/RW-LICENSE.txt
+ *
+ * @category   RocketWeb
+ * @package    RocketWeb_MageTesting
+ * @copyright  Copyright (c) 2013 RocketWeb (http://www.rocketweb.com)
+ * @author     Rocket Web Inc.
+ * @license    http://www.rocketweb.com/RW-LICENSE.txt
+ */
+
+?>
+<div id="wizard_step_account" class="wizard_block_hidden" title="<?php echo Mage::helper('magetesting')->__('Account Set Up'); ?>" style="display:none;">
+    <div>
+        <div class="step_container_description">
+            <p><?php echo Mage::helper('magetesting')->__('<a href="%s" %s>Create a Mage Testing account</a> and provide credentials to enable integration of the extension with the Mage Testing site.', $this->getMageTestingRegistrationUrl(), 'target="_blank"'); ?></p>
+            <p><?php echo Mage::helper('magetesting')->__('You can find your API key on <a href="%s" %s>Mage Testing My Account</a> page.', $this->getMageTestingMyAccountUrl(), 'target="_blank"'); ?></p>
+            <div style="padding-top:5px;" class="step_container_buttons">
+                <strong><?php echo Mage::helper('magetesting')->__('Your Mage Testing username'); ?>:</strong> <br/>
+                <input type="text" id="magetesting_username" style="width:300px;" value="<?php echo $this->getWizard()->getAccountUsername(); ?>" />
+            </div>
+            <div style="padding-top:5px;" class="step_container_buttons">
+                <strong><?php echo Mage::helper('magetesting')->__('Your Mage Testing API key'); ?>:</strong> <br/>
+                <input type="text" id="magetesting_apikey" style="width:300px;" value="<?php echo $this->getWizard()->getAccountApikey(); ?>" />
+            </div>
+        </div>
+        <div class="step_container_completed">
+            <span class="step_completed" style="display:none;"><?php echo Mage::helper('magetesting')->__('Completed'); ?></span>
+        </div>
+        <div class="step_container_incomplete">
+            <span class="step_incomplete" style="display:none;"><?php echo Mage::helper('magetesting')->__('Incomplete'); ?></span>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="step_container_buttons">
+        <span class="step_process" style="display:none;"><?php echo $this->getChildHtml('process_account_button'); ?></span>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    WizardObj.addStep('account', 'wizard_step_account');
+
+</script>

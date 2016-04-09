@@ -1,0 +1,79 @@
+<?php 
+
+/**
+ * Rocket Web Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is available through the world-wide-web at this URL:
+ * http://www.rocketweb.com/RW-LICENSE.txt
+ *
+ * @category   RocketWeb
+ * @package    RocketWeb_MageTesting
+ * @copyright  Copyright (c) 2013 RocketWeb (http://www.rocketweb.com)
+ * @author     Rocket Web Inc.
+ * @license    http://www.rocketweb.com/RW-LICENSE.txt
+ */
+
+?>
+<div id="wizard_step_connection" class="wizard_block_hidden" title="<?php echo Mage::helper('magetesting')->__('Connection'); ?>" style="display:none;">
+    <div>
+        <div class="step_container_description">
+            <?php echo Mage::helper('magetesting')->__('Provide conneciton details which allow to create test store in Mage Testing.'); ?>
+            <div style="padding-top:5px;" class="step_container_buttons">
+                <select id="magetesting_protocol" style="width:300px;">
+                    <?php foreach ($this->getProtocols() as $protocol): ?>
+                    <option value="<?php echo $protocol; ?>" <?php if($protocol === $this->getWizard()->getConnectionProtocol()): ?> selected="selected"<?php endif; ?>><?php echo $protocol ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <div style="padding-top:5px;" class="step_container_buttons">
+                <strong><?php echo Mage::helper('magetesting')->__('Host'); ?>:</strong> <br/>
+                <input type="text" id="magetesting_host" style="width:300px;" value="<?php echo $this->getConnectionHost(); ?>" />
+            </div>
+
+            <div style="padding-top:5px;" class="step_container_buttons">
+                <strong><?php echo Mage::helper('magetesting')->__('Port'); ?>:</strong> <br/>
+                <input type="text" id="magetesting_port" style="width:300px;" value="<?php echo $this->getWizard()->getConnectionPort(); ?>" placeholder="leave blank for default" />
+            </div>
+
+            <div style="padding-top:5px;" class="step_container_buttons">
+                <strong><?php echo Mage::helper('magetesting')->__('Username'); ?>:</strong> <br/>
+                <input type="text" id="magetesting_username" style="width:300px;" value="<?php echo $this->getWizard()->getConnectionUsername(); ?>" />
+            </div>
+
+            <div style="padding-top:5px;" class="step_container_buttons">
+                <strong><?php echo Mage::helper('magetesting')->__('Password'); ?>:</strong> <br/>
+                <input type="text" id="magetesting_password" style="width:300px;" value="<?php echo $this->getWizard()->getConnectionPassword(); ?>" />
+            </div>
+            
+            <div style="padding-top:5px;" class="step_container_buttons">
+                <strong><?php echo Mage::helper('magetesting')->__('Magento root'); ?>:</strong> <br/>
+                <input type="text" id="magetesting_root" style="width:300px;" value="<?php echo $this->getWizard()->getConnectionRoot(); ?>" /><span class="step_process" style="display:none;"><?php echo $this->getChildHtml('find_root_button'); ?></span>
+                <p><?php echo Mage::helper('magetesting')->__('Please fill path to your Magento store root directory'); ?>:</p>
+                <ul class="options-list">
+                    <li><?php echo Mage::helper('magetesting')->__('for SSH it is absolute path.'); ?></li>
+                    <li><?php echo Mage::helper('magetesting')->__('for FTP it is path relative to your FTP root.'); ?></li>
+                </ul>
+            </div>
+        </div>
+        <div class="step_container_completed">
+            <span class="step_completed" style="display:none;"><?php echo Mage::helper('magetesting')->__('Completed'); ?></span>
+        </div>
+        <div class="step_container_incomplete">
+            <span class="step_incomplete" style="display:none;"><?php echo Mage::helper('magetesting')->__('Incomplete'); ?></span>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="step_container_buttons">
+        <span class="step_process" style="display:none;"><?php echo $this->getChildHtml('process_connection_button'); ?></span>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    WizardObj.addStep('connection', 'wizard_step_connection');
+
+</script>

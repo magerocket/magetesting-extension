@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addJs"><script>rocketweb/magetesting/Message.js</script></action>
+            <action method="addJs"><script>rocketweb/magetesting/Blocks.js</script></action>
+            <action method="addJs"><script>rocketweb/magetesting/Initialization.js</script></action>
+            <action method="addCss"><stylesheet>rocketweb/adminhtml/magetesting.css</stylesheet></action>
+        </reference>
+    </default>
+
+    <adminhtml_mtwizard_success>
+        <reference name="content">
+            <block type="magetesting/adminhtml_success" template="rocketweb_magetesting/success.phtml" name="magetesting.success" />
+        </reference>
+    </adminhtml_mtwizard_success>
+ </layout>

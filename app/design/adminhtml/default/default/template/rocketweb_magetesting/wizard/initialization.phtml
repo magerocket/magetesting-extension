@@ -1,0 +1,36 @@
+<?php 
+
+/**
+ * Rocket Web Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is available through the world-wide-web at this URL:
+ * http://www.rocketweb.com/RW-LICENSE.txt
+ *
+ * @category   RocketWeb
+ * @package    RocketWeb_MageTesting
+ * @copyright  Copyright (c) 2013 RocketWeb (http://www.rocketweb.com)
+ * @author     Rocket Web Inc.
+ * @license    http://www.rocketweb.com/RW-LICENSE.txt
+ */
+
+?>
+
+<script type="text/javascript">
+    if (typeof WizardConfig == 'undefined') {
+        WizardConfig = {};
+        WizardConfig.url = {};
+        WizardConfig.text = {};
+    }
+
+    WizardConfig.url.home = '<?php echo $this->getUrl('*/mtwizard/index'); ?>';
+    WizardConfig.url.backup = '<?php echo $this->getBackupUrl(); ?>';
+
+    WizardConfig.text.step_word = '<?php echo Mage::helper('magetesting')->__('Step'); ?>';
+
+    WizardObj = new Wizard('<?php echo $this->getStatus(); ?>','<?php echo $this->getStep(); ?>');
+    WizardObj.steps.all = <?php echo $this->getSteps(); ?>;
+    WizardObj.setConstants('<?php echo Mage::helper('magetesting')->getClassConstantAsJson('Model_Wizard'); ?>');
+</script>

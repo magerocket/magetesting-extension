@@ -1,0 +1,93 @@
+<?php 
+
+/**
+ * Rocket Web Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is available through the world-wide-web at this URL:
+ * http://www.rocketweb.com/RW-LICENSE.txt
+ *
+ * @category   RocketWeb
+ * @package    RocketWeb_MageTesting
+ * @copyright  Copyright (c) 2013 RocketWeb (http://www.rocketweb.com)
+ * @author     Rocket Web Inc.
+ * @license    http://www.rocketweb.com/RW-LICENSE.txt
+ */
+
+?>
+<div id="wizard_step_import" class="wizard_block_hidden" title="<?php echo Mage::helper('magetesting')->__('Import your store to Mage Testing.'); ?>" style="display:none;">
+    <div>
+        <div class="step_container_description">
+            <?php echo Mage::helper('magetesting')->__('Import your store to Mage Testing.'); ?>
+            <div style="padding-top:5px;">
+
+                <table class="form-list" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Name'); ?>: </label></td>
+                            <td class="value"><?php echo $this->getStoreName(); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Edition'); ?>: </label></td>
+                            <td class="value"><?php echo $this->getEdition(); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Version'); ?>: </label></td>
+                            <td class="value"><?php echo Mage::getVersion(); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Files backup'); ?>: </label></td> 
+                            <td class="value"><?php echo $this->getWizard()->getWizardStorebackup(); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Database backup'); ?>: </label></td> 
+                            <td class="value"><?php echo $this->getWizard()->getWizardDbbackup(); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Protocol'); ?>: </label></td> 
+                            <td class="value"><?php echo $this->getWizard()->getConnectionProtocol(); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Host'); ?>: </label></td> 
+                            <td class="value"><?php echo $this->getWizard()->getConnectionHost(); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Port'); ?>: </label></td> 
+                            <td class="value"><?php echo $this->getWizard()->getConnectionPort(); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Username'); ?>: </label></td> 
+                            <td class="value"><?php echo $this->getWizard()->getConnectionUsername(); ?></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Password'); ?>: </label></td> 
+                            <td class="value">******</td>
+                        </tr>
+                        <tr>
+                            <td class="label"><label><?php echo Mage::helper('magetesting')->__('Magento root path'); ?>: </label></td> 
+                            <td class="value"><?php echo $this->getWizard()->getConnectionRoot(); ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="step_container_completed">
+            <span class="step_completed" style="display:none;"><?php echo Mage::helper('magetesting')->__('Completed'); ?></span>
+        </div>
+        <div class="step_container_incomplete">
+            <span class="step_incomplete" style="display:none;"><?php echo Mage::helper('magetesting')->__('Incomplete'); ?></span>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="step_container_buttons">
+        <span class="step_process" style="display:none;"><?php echo $this->getChildHtml('process_import_button'); ?></span>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    WizardObj.addStep('import', 'wizard_step_import');
+
+</script>

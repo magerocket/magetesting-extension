@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mage Testing : readme</title>
+    <link rel="stylesheet" href="skin/style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+<!--[if IE 8]>
+<body class="ie lt-ie9">
+<![endif]-->
+<!--[if IE 9]>
+<body class="ie ie9">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<body>
+<!--<![endif]-->
+    <div id="main-container">
+        <div id="header">
+            <div class="inner cf">
+                <div id="logo">
+                    <a href="http://www.rocketweb.com"><img src="skin/img/logo.png"/></a>
+                </div>
+                <div id="address">
+                    475 River Bend Rd, Ste 200C Naperville IL 60540 USA<br/>
+                    Phone: (855) 624 3686<br/>
+                    Email: <a href="mailto:info@rocketweb.com">info@rocketweb.com</a><br/>
+                </div>
+            </div>
+        </div>
+
+        <div id="main">
+            <h1>Mage Testing</h1>
+
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#description">Description</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li>
+                    <a href="#importing">Importing store</a>
+                    <ul>
+                        <li><a href="#importing-preparation">Preparation</a></li>
+                        <li><a href="#importing-step1">Step 1 - Account Set Up</a></li>
+                        <li><a href="#importing-step2">Step 2 - Prepare your store backup</a></li>
+                        <li><a href="#importing-step3">Step 3 - Prepare your database backup</a></li>
+                        <li><a href="#importing-step4">Step 4 - Connection</a></li>
+                        <li><a href="#importing-step5">Step 5 - Import</a></li>
+                    </ul>
+                </li>
+                <li><a href="#backup">Backup types</a></li>
+                <!--<li><a href="#troubleshooting">Troubleshooting</a></li>-->
+            </ol>
+
+
+            <h2 id="description">Description</h2>
+            <p><strong>Version 1.0.0</strong></p>
+            <p>Extension page: <a href="http://www.rocketweb.com/mage-testing">http://www.rocketweb.com/mage-testing</a></p>
+            <p>Mage Testing extension allows you to easily import your store to Mage Testing service.</p>
+
+            <h2 id="features">Features</h2>
+            <ul>
+                <li>Assists in importing store to Mage Testing site.</li>
+                <li>Allows to create system files backup for Magento versions older than 1.7</li>
+            </ul>
+
+            <h2 id="installation">Installation</h2>
+
+            <h3>Backup your data</h3>
+            <p>Backup the database and your store's web directory.</p>
+
+            <h3>Disable Compilation</h3>
+            <p>This step is for Magento 1.4+ versions. If you are running an older version, this step can be skipped. In the Magento admin panel, go to System->Tools->Compilation.
+            In case "Compiler Status" is "Enabled", click on the "Disable" button (in case the status is disabled you can skip this step): </p>
+            <p><img src="skin/img/disablec1.png" /></p>
+
+            <p>This screen should now look like this:</p>
+            <p><img src="skin/img/disablec2.png" /></p>
+
+            <h3>Download and Extract</h3>
+            <p>Download and extract (unzip) the extension's contents on you computer. Navigate inside the extracted folder.</p>
+
+            <h3>Upload files</h3>
+            <p>Using a FTP client, upload the content of the extension directory to the store's document root, so that the app directory in
+            the extension folder overwrites the app directory on the server. If asked to replace any files, select "Yes".</p>
+
+            <h3>Clear the cache</h3>
+            <p>In the Magento admin panel, go to System->Cache Management and press the "Flush Magento Cache" button:</p>
+            <p><img src="skin/img/cc.png" /></p>
+
+            <h2 id="importing">Importing store</h2>
+
+            <h3 id="importing-preparation">Preparation</h3>
+            
+            <p>Before you import your store to Mage Testing you need to <a href="http://www.magetesting.com/our-plans">create account on Mage Testing site</a>. After you successfully register and activate your account, navigate to <a href="http://www.magetesting.com/my-account">Mage Testing My Account</a> page where you can find your API key. You will need your Mage Testing username and API key in order to use extension.</p>
+
+            <h3 id="importing-step1">Step 1 - Account Set Up</h3>
+
+            <p>Fill both username and API key fields and Proceed. Extension will validate your API key and will proceed to next step if credentials are valid.</p>
+
+            <p><img src="skin/img/step1.png" /></p>
+
+            <h3 id="importing-step2">Step 2 - Prepare your store backup</h3>
+
+            <p>In this step you can prepare and choose your store backup. Initially list of backups is empty, so use "Generate backup now" button to generate backup. It can take a while, when it completes there should be success message displayed above and your backup should appear on backup list. At that point you can click "Process" to move to next step.</p>
+
+            <p><img src="skin/img/step2.png" /></p>
+
+            <h3 id="importing-step3">Step 3 - Prepare your database backup</h3>
+
+            <p>Now create database backup by clicking on "Generate backup now". When it completes with success message, click on "Proceed" to go to next step.</p>
+
+            <p><img src="skin/img/step3.png" /></p>
+
+            <h3 id="importing-step4">Step 4 - Connection</h3>
+
+            <p>Fill connection details to let Mage Testing site connect with your store and download system and database backups. Theese backups will be used to import your store to Mage Testing site.</p>
+
+            <p>Make sure to provide proper path to Magento installation. "Find path" button can help with that as soon as you use SSH protocol. If you use FTP protocol and you are not sure what is Magento path, please contact with your hosting provider.</p>
+
+            <p><img src="skin/img/step4.png" /></p>
+
+            <h3 id="importing-step5">Step 5 - Import</h3>
+
+            <p>At this point review details and click on "Import Store". This will connect with Mage Testing site and schedule store import there.</p>
+
+            <p>You can check installation status on Success page or in Mage Testing site dashboard.</p>
+
+            <p><img src="skin/img/step5.png" /></p>
+
+            <h2 id="backup">Backup types</h2>
+
+            <p>Mage Testing extension introduces two new system backup types:</p>
+            
+            <dl>
+                <dt>System (Excluding Media and DB backups)</dt>
+                <dd>This backup is similar to default "System" backup type provided by Magento. This backup contains store files excluding <code>media/</code> similar to "System Backup". However, this new type also excludes database backup located in <code>var/</code> directory. You can create backup of this type in second step of import wizard and you can choose from backups of this type in the dropdown list there.</dd>
+
+                <dt>Clean DB (without log and cache tables)</dt>
+                <dd>This backup is similar to default Magento database backup. However, it additionally excludes some tables which can contain significant amount of data such as log or cache tables. This backup could be created in third step of wizard and you can choose from backups of this type in the dropdown list at Step 3.</dd>
+            </dl>
+
+            <p>Both new backup types are visible on <em>Tools -> Backups</em> page and you can download and delete them there manually whenever needed.</p>
+
+            <!--<h2 id="troubleshooting">Troubleshooting</h2>-->
+
+        </div>
+
+        <div id="footer">
+            <div class="inner">
+                <p>&copy; 2014 Rocket Web Inc.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
